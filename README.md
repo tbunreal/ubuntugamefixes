@@ -1,2 +1,2 @@
-# ubuntugamefixes
-Linux gaming fixes
+# Ubuntu Windows game fixes
+I'll write guides for windows games on linux if I come across difficulties myself
