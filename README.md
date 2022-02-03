@@ -4,7 +4,7 @@ I'll write guides for windows games on linux if I come across difficulties mysel
 More info at: https://windowsgamingonlinux.wixsite.com/ubuntugaming
 
 # playonlinux DXVK
-Updated playonlinux dxvk's
+Updated playonlinux dxvk's, download and install these after every game installation
 
 # Initial Setup
 Install xterm from ubuntu software
