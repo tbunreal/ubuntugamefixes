@@ -43,6 +43,6 @@ Make sure to use this custom wine version when creating virtual drives and insta
 PRIMARILY USED FOR STANDALONE .EXE VERSIONS OF GAMES ON UBUNTU LINUX WHERE YOU CANNOT USE STEAM PROTON
 
 
-# Grand Theft Auto V Install
+# Grand Theft Auto V Linux Install
 PRIMARILY USED FOR STANDALONE .EXE VERSIONS OF GAMES ON UBUNTU LINUX WHERE YOU CANNOT USE STEAM PROTON
 
