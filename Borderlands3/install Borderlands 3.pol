@@ -1,0 +1,35 @@
+#!/usr/bin/env playonlinux-bash
+[ "$PLAYONLINUX" = "" ] && exit 0
+source "$PLAYONLINUX/lib/sources"
+ 
+POL_SetupWindow_Init
+ 
+POL_SetupWindow_presentation "Borderlands 3" "Gearbox" "https://www.gearboxsoftware.com/game/borderlands/" "Tbunreal" "Borderlands3"
+
+
+POL_SetupWindow_message "Downloading GloriousEggroll wine version" "Borderlands 3 install"
+cd "/home/derrek/.PlayOnLinux/wine/linux-amd64"
+POL_Download "https://github.com/GloriousEggroll/wine-ge-custom/releases/download/7.0-GE-1-LoL/wine-lutris-ge-7.0-1-lol-x86_64.tar.xz"
+
+
+POL_SetupWindow_message "Installing GloriousEggroll wine version" "Borderlands 3 install"
+cd "/home/derrek/.PlayOnLinux/wine/linux-amd64"
+tar -xf wine-lutris-ge-7.0-1-lol-x86_64.tar.xz
+
+POL_SetupWindow_message "Creating Borderlands 3 virtual drive" "Borderlands 3 install"
+POL_System_SetArch "amd64"
+POL_Wine_SelectPrefix "Borderlands3"
+POL_Wine_PrefixCreate "lutris-ge-7.0-1-lol-x86_64"
+Set_OS "win10"
+
+POL_SetupWindow_message "Downloading components: dinput8, vcrun2019, dotnet480, physx, DXVK_192" "Borderlands 3 install"
+POL_Call POL_Install_dinput8
+POL_Call POL_Install_vcrun2019
+POL_Call POL_Install_dotnet480
+POL_Call POL_Install_physx
+POL_Call POL_Install_DXVK_192
+
+POL_SetupWindow_message "Finished, please run BorderlandsFix script to properly run the game" "Borderlands 3 install"
+ 
+POL_SetupWindow_Close
+exit
