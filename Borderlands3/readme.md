@@ -6,7 +6,7 @@ Install playonlinux from initial setup
 
  
 
-Download playonlinux install scripts for Borderlands 3 [HERE](https://drive.google.com/file/d/1K5c_lHQvGWfmHExvcG0wFVAeErCIX-WW/view?usp=sharing)
+Download playonlinux install scripts for Borderlands 3
 
  
 
