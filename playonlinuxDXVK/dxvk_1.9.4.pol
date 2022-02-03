@@ -1,0 +1,65 @@
+#!/usr/bin/env playonlinux-bash
+[ "$PLAYONLINUX" = "" ] && exit 0
+source "$PLAYONLINUX/lib/sources"
+ 
+POL_SetupWindow_Init
+ 
+ 
+POL_SetupWindow_message "Warning: DXVK software can not work without Vulkan driver (on your OS), we can not automate this." "$TITLE"
+
+
+DXVK_VERSION="1.9.4"
+MD5SUM="fcac4bcce02f8fc1e2d93a3f0b788757"
+
+POL_Wine_SelectPrefix ""
+ 
+# Downloading DXVK files
+POL_Download_Resource "https://github.com/doitsujin/dxvk/releases/download/v$DXVK_VERSION/dxvk-$DXVK_VERSION.tar.gz" "$MD5SUM"
+ 
+# Installing DLL
+POL_SetupWindow_wait_next_signal "$(eval_gettext 'Installing DXVK files...')" "$TITLE"
+ 
+
+cd "$WINEPREFIX/drive_c/windows/temp"
+ 
+tar -xvzf "$POL_USER_ROOT/ressources/dxvk-$DXVK_VERSION.tar.gz"
+ 
+if [ "$POL_ARCH" == "amd64" ]; then
+        cp -f "$WINEPREFIX/drive_c/windows/temp/dxvk-$DXVK_VERSION/x32/d3d9.dll" "$WINEPREFIX/drive_c/windows/syswow64"
+        cp -f "$WINEPREFIX/drive_c/windows/temp/dxvk-$DXVK_VERSION/x32/d3d10.dll" "$WINEPREFIX/drive_c/windows/syswow64"
+        cp -f "$WINEPREFIX/drive_c/windows/temp/dxvk-$DXVK_VERSION/x32/d3d10_1.dll" "$WINEPREFIX/drive_c/windows/syswow64"
+        cp -f "$WINEPREFIX/drive_c/windows/temp/dxvk-$DXVK_VERSION/x32/d3d10core.dll" "$WINEPREFIX/drive_c/windows/syswow64"
+        cp -f "$WINEPREFIX/drive_c/windows/temp/dxvk-$DXVK_VERSION/x32/d3d11.dll" "$WINEPREFIX/drive_c/windows/syswow64"
+        cp -f "$WINEPREFIX/drive_c/windows/temp/dxvk-$DXVK_VERSION/x32/dxgi.dll" "$WINEPREFIX/drive_c/windows/syswow64"
+  
+        cp -f "$WINEPREFIX/drive_c/windows/temp/dxvk-$DXVK_VERSION/x64/d3d9.dll" "$WINEPREFIX/drive_c/windows/system32"
+        cp -f "$WINEPREFIX/drive_c/windows/temp/dxvk-$DXVK_VERSION/x64/d3d10.dll" "$WINEPREFIX/drive_c/windows/system32"
+        cp -f "$WINEPREFIX/drive_c/windows/temp/dxvk-$DXVK_VERSION/x64/d3d10_1.dll" "$WINEPREFIX/drive_c/windows/system32"
+        cp -f "$WINEPREFIX/drive_c/windows/temp/dxvk-$DXVK_VERSION/x64/d3d10core.dll" "$WINEPREFIX/drive_c/windows/system32"
+        cp -f "$WINEPREFIX/drive_c/windows/temp/dxvk-$DXVK_VERSION/x64/d3d11.dll" "$WINEPREFIX/drive_c/windows/system32"
+        cp -f "$WINEPREFIX/drive_c/windows/temp/dxvk-$DXVK_VERSION/x64/dxgi.dll" "$WINEPREFIX/drive_c/windows/system32"
+	POL_SetupWindow_message "Finished, with 64bit dxvk"
+else
+        cp -f "$WINEPREFIX/drive_c/windows/temp/dxvk-$DXVK_VERSION/x32/d3d9.dll" "$WINEPREFIX/drive_c/windows/system32"
+        cp -f "$WINEPREFIX/drive_c/windows/temp/dxvk-$DXVK_VERSION/x32/d3d10.dll" "$WINEPREFIX/drive_c/windows/system32"
+        cp -f "$WINEPREFIX/drive_c/windows/temp/dxvk-$DXVK_VERSION/x32/d3d10_1.dll" "$WINEPREFIX/drive_c/windows/system32"
+        cp -f "$WINEPREFIX/drive_c/windows/temp/dxvk-$DXVK_VERSION/x32/d3d10core.dll" "$WINEPREFIX/drive_c/windows/system32"
+        cp -f "$WINEPREFIX/drive_c/windows/temp/dxvk-$DXVK_VERSION/x32/d3d11.dll" "$WINEPREFIX/drive_c/windows/system32"
+        cp -f "$WINEPREFIX/drive_c/windows/temp/dxvk-$DXVK_VERSION/x32/dxgi.dll" "$WINEPREFIX/drive_c/windows/system32"
+	POL_SetupWindow_message "Finished, with 32bit dxvk"
+fi
+ 
+# Overriding dlls
+POL_Debug_Message "Overriding DirectX 9, 10, 11 DLLs"
+ 
+POL_Call POL_Function_OverrideDLL "native" "d3d9"
+POL_Call POL_Function_OverrideDLL "native" "d3d10"
+POL_Call POL_Function_OverrideDLL "native" "d3d10_1"
+POL_Call POL_Function_OverrideDLL "native" "d3d10core"
+POL_Call POL_Function_OverrideDLL "native" "d3d11"
+POL_Call POL_Function_OverrideDLL "native" "dxgi"
+
+POL_SetupWindow_message "Finished"
+ 
+POL_SetupWindow_Close
+exit
