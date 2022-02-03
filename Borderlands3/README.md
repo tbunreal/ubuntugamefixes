@@ -23,3 +23,5 @@ Once done with the playonlinux script, right click Borderlands3Fix.bash (which s
 playonlinux as time of writing has outdated dxvk versions. Download the new ones from my dxvk presository
 
 If you need to install / run an extractor, do that now from this playonlinux virtual drive. You can now create a shortcut in playonlinux to your borderlands3.exe and run!
+
+**BUGS:** I have encountered an unfortunate glitch on my system. If Borderlands does not startup once closed, you will need to edit GameUserSettings.ini which may be found in "/home/YOUR USERNAME HERE/Documents/My Games/Borderlands 3/Saved/Config/WindowsNoEditor"
