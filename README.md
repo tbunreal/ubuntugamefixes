@@ -3,7 +3,7 @@ I'll write guides for windows games on linux if I come across difficulties mysel
 
 More info at: https://windowsgamingonlinux.wixsite.com/ubuntugaming
 
-# DXVK
+# playonlinux DXVK
 Updated playonlinux dxvk
 
 open with text editor and find: POL_Wine_SelectPrefix ""
