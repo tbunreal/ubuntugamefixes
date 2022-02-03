@@ -20,6 +20,6 @@ Run playonlinux and go to tools and run a local script and run install Borderlan
 
 Once done with the playonlinux script, right click Borderlands3Fix.bash (which should be in your home directory) and run as a program
 
- 
+playonlinux as time of writing has outdated dxvk versions. Download the new ones from my dxvk presository
 
 If you need to install / run an extractor, do that now from this playonlinux virtual drive. You can now create a shortcut in playonlinux to your borderlands3.exe and run!
