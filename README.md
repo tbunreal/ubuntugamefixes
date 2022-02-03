@@ -9,7 +9,7 @@ Updated playonlinux dxvk's, download and install these after every game installa
 # Initial Setup
 Install xterm from ubuntu software
 
-Install playonlinux from HERE. Paste the command from under Development Version into the terminal. This will download playonlinux to your home directory.
+Install playonlinux from git: git clone https://github.com/PlayOnLinux/POL-POM-4. Paste the command into the terminal. This will download playonlinux to your home directory.
 
 open a text editor and paste this if you installed to the home directory, replace YOUR USERNAME HERE, with your username. Make sure POL-POM-4 is still the correct folder name that downloading playonlinux created, it may change.
 ```
