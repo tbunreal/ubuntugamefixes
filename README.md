@@ -12,7 +12,7 @@ Install xterm from ubuntu software
 Install playonlinux from HERE. Paste the command from under Development Version into the terminal. This will download playonlinux to your home directory.
 
 open a text editor and paste this if you installed to the home directory, replace YOUR USERNAME HERE, with your username. Make sure POL-POM-4 is still the correct folder name that downloading playonlinux created, it may change.
-
+```
 [Desktop Entry]
 Encoding=UTF-8
 Version=1.0
@@ -21,6 +21,7 @@ Terminal=false
 Exec=/home/YOUR USERNAME HERE/POL-POM-4/playonlinux
 Name=playonlinux
 Icon=/home/YOUR USERNAME HERE/POL-POM-4/resources/images/setups/default/top.png
+```
 
 Save this file as playonlinux.desktop and save it to the desktop. Right click and click allow launching. This should now be a shortcut to playonlinux.
 
