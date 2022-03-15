@@ -31,7 +31,7 @@ Run the shortcut to create a hidden folder in your Ubuntu home directory called 
 
  
 
-If you want to manually download a wine version incase of an outdated script, these have soecial fixes for games:
+If you want to manually download a wine version incase of an outdated script, these have special fixes for games:
 
 Download the latest gloriousEggroll wine version from HERE
 
